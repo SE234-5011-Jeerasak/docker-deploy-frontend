@@ -38,14 +38,14 @@ jobs:
         with:
           context: .
           push: true
-          tags: mikevasaski/234-deploylab-frontend:latest
+          tags: mikevasaski/deploylab-frontend:latest
       
       -
         name: prepare the docker-compose run
         run: |
-               mkdir 234-deploylab-frontend
-               cp docker-compose.yml 234-deploylab-frontend/docker-compose.yml
-               cd 234-deploylab-frontend
+               mkdir deploylab-frontend
+               cp docker-compose.yml deploylab-frontend/docker-compose.yml
+               cd deploylab-frontend
                docker-compose -H ${{ secrets.HOST_SERVER }} down
                docker-compose -H ${{ secrets.HOST_SERVER }} pull
                docker-compose -H ${{ secrets.HOST_SERVER }} up -d
